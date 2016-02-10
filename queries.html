@@ -16,6 +16,14 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		
+		<!--jquery src -->
+	    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/hot-sneaks/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	    
+	    <!--Stylesheets-->
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 
@@ -40,7 +48,46 @@
 				figure out how to query for "Smith". You'll know you're successful if you get results at the bottom of the form. And once you have that, you have a URL
 				that you can copy and paste into your Javascript code in order to build a dynamic query for your users. All you have to do is switch the format from "html" to "json" and you've
 				got something your web app can consume, parse with code, and display to your users.</p>
+			<p>
+				Let's take a look at the <a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query" target="_blank">query form</a> available for 
+				the <a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4" target="_blank">Detailed Counties Layer</a> we looked at in the <a href="./browse.html">Explore with a Browser</a> section.
+				Once again for your testing excitement, here it is in an iframe:
+				<iframe src="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query"></iframe>
+			</p>
+			<p>
+				When you're working with this form, keep in mind that the "Query (Get)" button is near the bottom, and if you hit "Enter" you might fire it off. Also, there are sometimes elements that,
+				if skipped, can hose up the query. But usually it only takes a few tries to get a good query working. Especially if the endpoint is set up well. This one is relatively easy to use
+				just with the "Name" field at the top. Type in "Dade" and hit your Enter key. Here are links to the results (with the HTML version, they appear below the query form):
+				<ul>
+					<li><a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query?text=Dade&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outSR=&outFields=&f=html" target="_blank">In HTML</a></li>
+					<li><a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query?text=Dade&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outSR=&outFields=&f=pjson" target="_blank">In "pretty" JSON</a></li>
+				</ul>
+			</p>
+			<p>
+				You can see you don't need the exact spelling to get results in this example - you get two "Dade" counties as well as "Miami-Dade". But with the defaults, we get a heck of a lot more
+				geometry than we get other text. This is great if we're making a map, but not the best if we're interested in attributes. (You could argue that we should use <a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/3" target="_blank">Coarse Counties</a> if we're not interested in mapping!)
+				In order to get something a bit more human-readable, let's make two changes:
+				<ol>
+					<li>Flip the "Return Geometry" radio button to "False."</li>
+					<li>Place a "*" in the "Return Fields" input.</li>
+				</ol>
+			</p>
+			<p>
+				Hit "Enter" and you'll see the results are a bit easier to read and understand. These three counties are in Florida, Georgia, and Missouri, along with dozens of demographic results.
+				You can switch the "Format" button at the bottom to "JSON" to change your format. This will actually switch the format in the URL to "pjson" so you can see the "pretty" or "padded" version. But if you're writing code
+				you can set the "f" (format) parameter to just "json" and get the minified version. <a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query?text=Dade&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=false&maxAllowableOffset=&outSR=&outFields=*&f=json" target="_blank">Here's a link for you to see that.</a>
+			</p>
 			<p>More coming soon!</p>
+				<!--
+				<div id="divQueryRandDemo">
+					<button id="btnQueryRandDemo">Generate Random Query</button>
+					<ul>
+						<li>Query URL:<em id="emQueryRandURL"></em></li>
+						<li>First County Returned:<em id="emQueryFirstCounty"></em></li>
+						<li>Population:<em id="emQueryPop"></em></li>
+					</ul>
+				</div>
+				-->
 			</div>
 
 			<footer>
