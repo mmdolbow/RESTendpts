@@ -79,19 +79,18 @@
 				you can set the "f" (format) parameter to just "json" and get the minified version. <a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query?text=Dade&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=false&maxAllowableOffset=&outSR=&outFields=*&f=json" target="_blank">Here's a link for you to see that.</a>
 			</p>
 			<p>The button below grabs a random letter of the alphabet and queries the layer. Crack open your developer console and watch the Net tab to see how the query gets fired and produces the results shown below.
-				For the last three elements, we're showing the JSON path you need to get the result shown.
+				Check out the <em>getRandomCounty</em> function in <a href="https://github.com/mmdolbow/RESTendpts/blob/gh-pages/js/app.js" target="_blank">the source code in GitHub</a> to see more details about how this is done.
 			</p>
 				<!--Button to generate a random query and show results -->
-				<div id="divQueryRandDemo">
+				<div class="funcdemo" id="divQueryRandDemo">
 					<button id="btnQueryRandDemo" onclick="getRandomCounty();">Generate Random Query</button>
 					<ul>
 						<li>Query URL: <em id="emQueryRandURL"></em></li>
-						<li>Number of Counties Returned (data.features.length): <em id="emQueryNoCounties"></em></li>
-						<li>First County Returned (data.features[0].attributes.NAME): <em id="emQueryFirstCounty"></em></li>
-						<li>2007 Population (data.features[0].attributes.POP2007): <em id="emQueryPop"></em></li>
+						<li>Number of Counties Returned: <em id="emQueryNoCounties"></em></li>
+						<li>First County Returned: <em id="emQueryFirstCounty"></em></li>
+						<li>2007 Population: <em id="emQueryPop"></em></li>
 					</ul>
 				</div>
-				
 			</div>
 
 			<footer>

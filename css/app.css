@@ -33,7 +33,12 @@ header, p {
 	/*padding: 15px;*/
 }
 
-iframe {
+iframe, .funcdemo {
 	margin: 15px;
 	width: 80%;
+}
+
+.funcdemo {
+	background-color: #c0c0c0;
+	padding: 10px;
 }
