@@ -29,3 +29,26 @@ function getRandomCounty() {
 	});
 
 }
+
+function initpnpmap() {	
+		var map = L.map('map', {
+				maxZoom:8,
+				minZoom:8,
+				zoomControl:'false',
+				center: [40.0,-80.0],
+				zoom:8
+			});
+		map.removeControl(map.zoomControl);
+		var marker = L.marker([40.0,-80.0]).addTo(map);
+
+		var MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
+			attribution: 'Tiles Courtesy of <a href="http://polymaps.org">PolyMaps<a>, <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+			subdomains: '1234'
+		});
+		map.addLayer(MapQuestOpen_OSM);
+		
+		L.esri.dynamicMapLayer({
+		    url: '//server.arcgisonline.com/arcgis/rest/services/Demographics/USA_Population_by_Sex/MapServer',
+		    opacity: 0.5
+		  }).addTo(map);
+	}

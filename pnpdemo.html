@@ -16,12 +16,17 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet.css" />
 		<link rel="stylesheet" href="css/app.css">
+		<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+		<script src="//cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet.js"></script>
+		<script src="//cdn.jsdelivr.net/leaflet.esri/2.0.0-beta.7/esri-leaflet.js"></script>
+		<script src="js/app.js"></script>
 	</head>
 
-	<body>
+	<body onload="initpnpmap();">
 		<div>
-			<!-- Try to figure out how to do he nav better -->
+			<!-- Try to figure out how to do the nav better -->
 			<nav>
 				<ul>
 					<li><a href="./index.html">Home</a></li>
@@ -41,9 +46,11 @@
 			irregular areas such as watersheds (or some heinously gerrymandered congressional districts), this question is not so easy to answer. But if you have a REST endpoint
 			that defines those areas, you can perform a "spatial query" to get the answer relatively easily.	
 				</p>
-			<p>More coming soon!</p>
+				<p>More coming soon! Right now we have a basic map with only panning options and an overlay. We need to restrict the panning bounds, set up an event listener on pan that will move the marker
+					and fire off a query to the service.</p>
+			<div id="map"></div>
 			</div>
-
+			
 			<footer>
 				<p>
 					&copy; Copyright by Mike Dolbow, <a href="http://twitter.com/mmdolbow">twitter.com/mmdolbow</a>
