@@ -46,9 +46,14 @@
 			irregular areas such as watersheds (or some heinously gerrymandered congressional districts), this question is not so easy to answer. But if you have a REST endpoint
 			that defines those areas, you can perform a "spatial query" to get the answer relatively easily.	
 				</p>
-				<p>More coming soon! Right now we have a basic map with only panning options and an overlay. We need to restrict the panning bounds, set up an event listener on pan that will move the marker
-					and fire off a query to the service.</p>
+				<p>The marker in the map below will stay in the center of the map. As you pan the map across county boundaries, it'll query the county layer in the overlaid map service and give you some results here:</p>
+					<ul>
+						<li>Query URL: <em id="emPnPURL"></em></li>
+						<li>County (first returned if multiple): <em id="emPnPCounty"></em></li>
+						<li>2012 Total Population: <em id="emPnPPop"></em></li>
+					</ul>
 			<div id="map"></div>
+
 			</div>
 			
 			<footer>
