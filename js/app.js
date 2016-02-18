@@ -50,7 +50,7 @@ function getRandomCounty() {
 }
 
 function initpnpmap() {	
-	var map = L.map('map', mapOptions);
+		map = L.map('map', mapOptions);
 		map.removeControl(map.zoomControl);
 		var marker = L.marker(map.getCenter()).addTo(map);
 
@@ -91,3 +91,4 @@ function mapquery(pntLatLng) {
 		$("#emPnPPop").html(data.features[0].attributes.TOTPOP_CY);
 	});
 }
+

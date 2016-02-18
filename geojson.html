@@ -16,10 +16,14 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet.css" />
 		<link rel="stylesheet" href="css/app.css">
+		<script src="//cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet.js"></script>
+		<script src="//raw.github.com/calvinmetcalf/leaflet-ajax/master/dist/leaflet.ajax.min.js"></script>
+		<script src="js/geojson.js"></script>
 	</head>
 
-	<body>
+	<body onload="initgeojsonmap();">
 		<div>
 			<!-- Try to figure out how to do he nav better -->
 			<nav>
@@ -45,12 +49,17 @@
 				you can request GeoJSON from Esri services to get the same thing. If you're working with an Esri-flavored endpoint that is NOT on AGOL, you can leverage
 				open Javascript libraries such as <a href="http://terraformer.io/arcgis-parser/" target="_blank">this one from Terraformer (new window)</a> to convert their original version of JSON-with-geometry to GeoJSON.
 				</p>
-			<p>More coming soon!</p>
+			<p>Below we take this in a few directions. First, we found an ArcGIS.com-hosted dataset from Detroit 
+				called <a href="http://d3.d3.opendata.arcgis.com/datasets/46321d4eac7c436d858ba64870c91075_0" target="_blank">Public Libraries (new window)</a>.
+				Then, with some help from <a href="http://lyzidiamond.com/posts/external-geojson-and-leaflet-the-other-way/" target="_blank">Lyzi Diamond (new window)</a>
+				and <a href="https://github.com/calvinmetcalf/leaflet-ajax" target="_blank">a plugin from Calvin Metcalf (new window)</a>, we add
+				that dataset with a query of the layer, setting the output format to GeoJSON. (You'll only find this format in the HTML query form if it's available - currently only in ArcGIS.com-hosted data.)
+				</p>
 			</div>
-
+			<div id="map"></div>
 			<footer>
 				<p>
-					&copy; Copyright by Mike Dolbow, <a href="http://twitter.com/mmdolbow">twitter.com/mmdolbow</a>
+					&copy; <a href="./license.md">Copyright</a> by Mike Dolbow, <a href="http://twitter.com/mmdolbow">twitter.com/mmdolbow</a>.
 				</p>
 			</footer>
 		</div>
