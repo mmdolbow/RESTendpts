@@ -35,6 +35,23 @@ nav > ul > li > a {
     text-decoration: none;
 }
 
+/* Phone navigation */
+@media screen and (max-width: 480px) {
+   nav ul li {
+       width: 100%; /* Set each item on it's own line (100% screen width) */
+       text-align: center; /* Center alignment */
+       border-top: 1px solid #969696; /* Add a top border to each element */
+       border-bottom: 1px solid #969696; /* Add a bottom border to each element */
+   }
+   nav ul li:first-child {
+     border-top: none;
+   }
+
+  nav ul li:last-child {
+     border-bottom: none;
+  }
+}
+
 header, p {
 	margin: 15px;
 	/*padding: 15px;*/
