@@ -54,12 +54,13 @@ nav > ul > li > a {
 
 header, p {
 	margin: 15px;
+	word-wrap: break-word; /* Helps with long links */
 	/*padding: 15px;*/
 }
 
 iframe, .funcdemo {
-	margin: 15px;
-	width: 80%;
+	width: 90%;
+  margin: 15px 0px 0px 15px;
 }
 
 .funcdemo {
@@ -69,12 +70,11 @@ iframe, .funcdemo {
 
 #map {
     /*position: absolute;*/
-    top: 20px;
-    left: 10px;
-    right: 10px;
-    bottom: 20px;
-   width:500px;
+	 max-width: 1000px;
+	 width: 90%;
    height:400px;
+	 margin-left: auto;
+	 margin-right: auto;
 }
 #footer {
     right: 0;
