@@ -1,3 +1,10 @@
+/* Link hover and Focus */
+a:hover, :focus {
+	  outline: 0;
+    background-color: #fdae6b;
+	  -webkit-transition:all 0.15s ease-in-out;
+    transition:all 0.15s ease-in-out;
+}
 body{
     margin: 0;
     padding: 0;
@@ -28,14 +35,32 @@ nav > ul > li > a {
     text-decoration: none;
 }
 
+/* Phone navigation */
+@media screen and (max-width: 480px) {
+   nav ul li {
+       width: 100%; /* Set each item on it's own line (100% screen width) */
+       text-align: center; /* Center alignment */
+       border-top: 1px solid #969696; /* Add a top border to each element */
+       border-bottom: 1px solid #969696; /* Add a bottom border to each element */
+   }
+   nav ul li:first-child {
+     border-top: none;
+   }
+
+  nav ul li:last-child {
+     border-bottom: none;
+  }
+}
+
 header, p {
 	margin: 15px;
+	word-wrap: break-word; /* Helps with long links */
 	/*padding: 15px;*/
 }
 
 iframe, .funcdemo {
-	margin: 15px;
-	width: 80%;
+	width: 90%;
+  margin: 15px 0px 0px 15px;
 }
 
 .funcdemo {
@@ -45,10 +70,16 @@ iframe, .funcdemo {
 
 #map {
     /*position: absolute;*/
-    top: 20px;
-    left: 10px;
-    right: 10px;
-    bottom: 20px;
-   width:500px;
+	 max-width: 1000px;
+	 width: 90%;
    height:400px;
+	 margin-left: auto;
+	 margin-right: auto;
+}
+#footer {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 1rem;
+    text-align: center;
 }
