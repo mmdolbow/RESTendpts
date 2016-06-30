@@ -17,11 +17,14 @@ var geojsonQueryURL = 'https://services2.arcgis.com/HsXtOCMp1Nis1Ogr/arcgis/rest
 function initgeojsonmap() {
 		map = L.map('map', mapOptions);
 
-		var MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
-			attribution: 'Tiles Courtesy of <a href="http://polymaps.org">PolyMaps<a>, <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-			subdomains: '1234'
-		});
-		map.addLayer(MapQuestOpen_OSM);
+		var basemapTileLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+				maxZoom: 17,
+				type: 'map',
+				ext: 'jpg',
+				subdomains: '1234',
+				attribution: 'Esri, HERE, DeLorme, Intermap, increment P Corp., GEBCO, USGS, FAO, NPS, NRCAN, GeoBase, IGN, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), swisstopo, MapmyIndia, © OpenStreetMap contributors, and the GIS User Community'
+			});
+		map.addLayer(basemapTileLayer);
 		
 		var geojsonLayer = new L.GeoJSON.AJAX(geojsonQueryURL, {onEachFeature:popUp});
 		geojsonLayer.addTo(map);
