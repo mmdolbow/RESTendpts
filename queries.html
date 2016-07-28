@@ -26,6 +26,7 @@
 
 	    <!--Stylesheets-->
 		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/skeleton.css">
 	</head>
 
 	<body>
@@ -52,7 +53,7 @@
 			<p>
 				Let's take a look at the <a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query" target="_blank">query form (new window)</a> available for
 				the <a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4" target="_blank">Detailed Counties Layer (new window)</a> we looked at in the <a href="./browse.html">Explore with a Browser</a> section.
-				Once again for your testing excitement, here it is in an iframe:
+				Once again for your testing excitement, here it is in an iframe:<br/>
 				<iframe src="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query"></iframe>
 			</p>
 			<p>
@@ -83,7 +84,7 @@
 			</p>
 				<!--Button to generate a random query and show results -->
 				<div class="funcdemo" id="divQueryRandDemo">
-					<button id="btnQueryRandDemo" onclick="getRandomCounty();">Generate Random Query</button>
+					<button class="button-primary" id="btnQueryRandDemo" onclick="getRandomCounty();">Generate Random Query</button>
 					<ul>
 						<li>Query URL: <em id="emQueryRandURL"></em></li>
 						<li>Number of Counties Returned: <em id="emQueryNoCounties"></em></li>

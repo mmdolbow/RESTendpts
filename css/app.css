@@ -1,8 +1,8 @@
 /* Link hover and Focus */
 a:hover, :focus {
 	  outline: 0;
-    background-color: #fdae6b;
-	  -webkit-transition:all 0.15s ease-in-out;
+    background-color: #fef1a7;
+	-webkit-transition:all 0.15s ease-in-out;
     transition:all 0.15s ease-in-out;
 }
 body{
