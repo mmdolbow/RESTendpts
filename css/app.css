@@ -67,6 +67,9 @@ nav > ul > li > a {
 
 header, p {
 	word-wrap: break-word; /* Helps with long links */
+}
+
+p {
 	margin: 15px;
 }
 
