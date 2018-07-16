@@ -8,4 +8,4 @@ This repository is intended to serve as a basic, introductory tutorial on using 
 4. Demonstrate ways to obtain geoJSON from AGOL services or with translators
 
 ## Status
-Pages built and content drafted, could use some style. Anyone want to contribute? Fork the repo.
+Finalized for now. File an issue if you see a problem. Thanks!
