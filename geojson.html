@@ -16,10 +16,14 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="stylesheet" href="//cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet.css" />
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+		integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+		crossorigin=""/>
 		<link rel="stylesheet" href="css/app.css">
 		<link rel="stylesheet" href="css/skeleton.css">
-		<script src="//cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet.js"></script>
+		<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+		integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+		crossorigin=""></script>
 		<script src="//cdn.rawgit.com/calvinmetcalf/leaflet-ajax/master/dist/leaflet.ajax.min.js"></script>
 		<script src="js/geojson.js"></script>
 	</head>
@@ -46,16 +50,16 @@
 				Recent years have seen an extension of this format into geography, called
 				<a href="http://geojson.org/">GeoJSON</a>, providing web developers with a lightweight, open format that is easily
 				parsed by Javascript and shown on simple maps. The format proved so popular that in 2014 Google Maps began supporting it,
-				as did Esri in <a href="https://blogs.esri.com/esri/arcgis/2014/12/16/arcgis-online-geojson/">ArcGIS Online (AGOL) REST endpoints</a>. As of version 10.4,
+				as did Esri in <a href="https://blogs.esri.com/esri/arcgis/2014/12/16/arcgis-online-geojson/">ArcGIS Online (AGOL) REST endpoints</a>. (<a href="http://d3.d3.opendata.arcgis.com/datasets/46321d4eac7c436d858ba64870c91075_0">Here's an example.</a>) As of version 10.4,
 				you can request GeoJSON as a format from Esri services authored in ArcGIS Server. If you're working with an Esri-flavored endpoint that is older than that, you can leverage
 				open Javascript libraries such as <a href="http://terraformer.io/arcgis-parser/">this one from Terraformer</a> to convert their original version of JSON-with-geometry to GeoJSON.
 				</p>
-			<p>Below we take this in a few directions. First, we found an ArcGIS.com-hosted dataset from Detroit
-				called <a href="http://d3.d3.opendata.arcgis.com/datasets/46321d4eac7c436d858ba64870c91075_0">Public Libraries</a>.
+			<p>Below we take this in a few directions. First, we utilize data from the USGS's <a href="https://eerscmap.usgs.gov/uswtdb/">Wind Turbine Database</a>, which has a non-Esri API, but also <a href="https://eerscmap.usgs.gov/arcgis/rest/services/uswtdb/uswtdbDyn/MapServer/0">an ArcGIS Server endpoint</a>.
 				Then, with some help from <a href="http://lyzidiamond.com/posts/external-geojson-and-leaflet-the-other-way">Lyzi Diamond</a>
 				and <a href="https://github.com/calvinmetcalf/leaflet-ajax">a plugin from Calvin Metcalf</a>, we add
-				that dataset with a query of the layer, setting the output format to GeoJSON. (You'll only find this format in the HTML query form if it's available - currently only in ArcGIS.com-hosted data.)
+				that dataset with a bounding-box query of the layer, setting the output format to GeoJSON. (You'll only find this format in the HTML query form if it's available.)
 				</p>
+			<p>All this  is overlain on the Esri imagery web map tile service. If you zoom in on some of the records, you will usually see the wind turbine!</p>
 			</div>
 			<div id="map"></div>
 			<div id="footer">
