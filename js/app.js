@@ -50,6 +50,7 @@ function getRandomCounty() {
 }
 
 function initpnpmap() {	
+		$('#loader').show();
 		map = L.map('map', mapOptions);
 		map.removeControl(map.zoomControl);
 		var marker = L.marker(map.getCenter()).addTo(map);
@@ -63,15 +64,20 @@ function initpnpmap() {
 			});
 		map.addLayer(basemapTileLayer);
 		
-		L.esri.dynamicMapLayer({
+		var ctyService = L.esri.dynamicMapLayer({
 		    url: dynMapServiceURL,
 		    opacity: 0.5
 		  }).addTo(map);
+
+		ctyService.on('load', function(e) {
+			$('#loader').hide();
+		});
 		
 		map.whenReady(function() {
 		    map.on('moveend', function() {
 		    	   	marker.setLatLng(map.getCenter());
-		    	   	mapquery(map.getCenter());
+					   mapquery(map.getCenter());
+					   $('#loader').show();
 		    	});
 		});
 		
@@ -92,6 +98,7 @@ function mapquery(pntLatLng) {
  		//console.table(data);
 		$("#emPnPCounty").html(data.features[0].attributes.NAME+", "+data.features[0].attributes.ST_ABBREV);
 		$("#emPnPPop").html(data.features[0].attributes.TOTPOP_CY);
+		$('#loader').hide();
 	});
 }
 
