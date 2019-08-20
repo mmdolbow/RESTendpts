@@ -28,8 +28,14 @@ function initgeojsonmap() {
 			});*/
 		map.addLayer(Esri_WorldImagery);
 		
-		var geojsonLayer = new L.GeoJSON.AJAX(geojsonQueryURL, {onEachFeature:popUp});
-		geojsonLayer.addTo(map);
+		//var geojsonLayer = new L.GeoJSON.AJAX(geojsonQueryURL, {onEachFeature:popUp});
+		//console.log("GeoJSON layer added");
+		var geojsonLayer = $.getJSON(geojsonQueryURL, function(){})
+		.done(function(data){
+			L.geoJSON(data, {
+			}).addTo(map);
+		});
+		
 }
 
   function popUp(feature, layer) {
