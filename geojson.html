@@ -55,11 +55,10 @@
 				you can request GeoJSON as a format from Esri services authored in ArcGIS Server. If you're working with an Esri-flavored endpoint that is older than that, you can leverage
 				open Javascript libraries such as <a href="http://terraformer.io/arcgis-parser/">this one from Terraformer</a> to convert their original version of JSON-with-geometry to GeoJSON.
 				</p>
-			<p>Below we're attempting to take this in a few directions. First, we utilize data from the USGS's <a href="https://eerscmap.usgs.gov/uswtdb/">Wind Turbine Database</a>, which has a non-Esri API, but also <a href="https://eerscmap.usgs.gov/arcgis/rest/services/uswtdb/uswtdbDyn/MapServer/0">an ArcGIS Server endpoint</a>.
-				Then, we're trying to use advice from <a href="http://lyzidiamond.com/posts/external-geojson-and-leaflet-the-other-way">Lyzi Diamond</a>
-				and <a href="https://github.com/calvinmetcalf/leaflet-ajax">a plugin from Calvin Metcalf</a>, or just jQuery $.getJSON, so we can add
-				that dataset with a bounding-box query of the layer, setting the output format to GeoJSON. (You'll only find this format in the HTML query form if it's available.)
-				Right now we're still trying to get this to work - hook us up a pull request if you can figure out what's going wrong!
+			<p>Below we have a simple map of the Detroit area, and using just jQuery $.getJSON, we add <a href="https://services2.arcgis.com/HsXtOCMp1Nis1Ogr/arcgis/rest/services/MyMapService/FeatureServer/0">this libraries layer</a> via REST, 
+				setting the output format to GeoJSON. (You'll only find this format in the HTML query form if it's available.)
+				Want a more challenging dataset? Try grabbing geojson from the <a href="https://eerscmap.usgs.gov/uswtdb/">US Wind Turbine Database</a>, which has <a href="https://eerscmap.usgs.gov/arcgis/rest/services/uswtdb/uswtdbDyn/MapServer/0">an ArcGIS REST endpoint here</a>, which we can't quite get to work.
+				But maybe you can! Or try their <a href="https://eerscmap.usgs.gov/uswtdb/api-doc/">officially documented API</a>, which just uses JSON (but includes coordinates!)...
 				</p>
 			<p>All this  is overlain on the Esri imagery web map tile service. If you zoom in on some of the records, you will usually see the wind turbine!</p>
 			</div>
