@@ -8,8 +8,8 @@ var mapOptions = {
 	center: [42.363,-83.093],
 	zoom:10,
 	maxBounds:[
-		[42.1,-83,40],
-		[43.0,-82.93]
+		[42.0,-83.40],
+		[43.0,-82.90]
 		]
 };
 var geojsonQueryURL = 'https://services2.arcgis.com/HsXtOCMp1Nis1Ogr/arcgis/rest/services/MyMapService/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&geohash=&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=*&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=4326&returnIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnDistinctValues=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&quantizationParameters=&f=pgeojson';
