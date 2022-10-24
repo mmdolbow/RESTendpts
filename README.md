@@ -9,3 +9,6 @@ This repository is intended to serve as a basic, introductory tutorial on using 
 
 ## Status
 Stable for now. File an issue if you see a problem. Thanks!
+
+## Change Log
+2022-10-24: Updating links, and pointers to Esri sample servers to newer more stable resources. Also updated instructions to better match newer endpoints.

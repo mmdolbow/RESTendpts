@@ -51,33 +51,32 @@
 				that you can copy and paste into your Javascript code in order to build a dynamic query for your users. All you have to do is switch the format from "html" to "json" and you've
 				got something your web app can consume, parse with code, and display to your users.</p>
 			<p>
-				Let's take a look at the <a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query">query form</a> available for
-				the <a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4">Detailed Counties Layer</a> we looked at in the <a href="./browse.html">Explore with a Browser</a> section.
-				Once again for your testing excitement, here it is in an iframe:<br/>
-				<iframe src="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query"></iframe>
+				Let's take a look at the <a href="https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/2/query">query form</a> available for
+				the <a href="https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/2">Detailed Counties Layer</a> we looked at in the <a href="./browse.html">Explore with a Browser</a> section.
+				Once again for your testing excitement, it's a good idea to open this up in a separate browser window or tab.
 			</p>
 			<p>
-				When you're working with this form, keep in mind that the "Query (Get)" button is near the bottom, and if you hit "Enter" you might fire it off. Also, there are sometimes elements that,
+				When you're working with this form, keep in mind that the "Query (Get)" button is near the bottom, and if you hit "Enter" within one of the entry fields you might fire it off. Also, there are sometimes elements that,
 				if skipped, can hose up the query. But usually it only takes a few tries to get a good query working. Especially if the endpoint is set up well. This one is relatively easy to use
-				just with the "Name" field at the top. Type in "Dade" and hit your Enter key. Here are links to the results (with the HTML version, they appear below the query form):
+				just with the "Text" field, second from the top. Type in "Dade" and hit your Enter key. Here are links to the results (with the HTML version, the results appear below the query form):
 				<ul>
-					<li><a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query?text=Dade&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outSR=&outFields=&f=html">In HTML</a></li>
-					<li><a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query?text=Dade&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outSR=&outFields=&f=pjson">In "pretty" JSON</a></li>
+					<li><a href="https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/2/query?where=&text=Dade&objectIds=&time=&timeRelation=esriTimeRelationOverlaps&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Foot&relationParam=&outFields=&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=&havingClause=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&historicMoment=&returnDistinctValues=false&resultOffset=&resultRecordCount=&returnExtentOnly=false&sqlFormat=none&datumTransformation=&parameterValues=&rangeValues=&quantizationParameters=&featureEncoding=esriDefault&f=html">In HTML</a></li>
+					<li><a href="https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/2/query?where=&text=Dade&objectIds=&time=&timeRelation=esriTimeRelationOverlaps&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Foot&relationParam=&outFields=&returnGeometry=true&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=&havingClause=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&historicMoment=&returnDistinctValues=false&resultOffset=&resultRecordCount=&returnExtentOnly=false&sqlFormat=none&datumTransformation=&parameterValues=&rangeValues=&quantizationParameters=&featureEncoding=esriDefault&f=pjson">In "pretty" JSON</a></li>
 				</ul>
 			</p>
 			<p>
 				You can see you don't need the exact spelling to get results in this example - you get two "Dade" counties as well as "Miami-Dade". But with the defaults, we get a heck of a lot more
-				geometry than we get other text. This is great if we're making a map, but not the best if we're interested in attributes. (You could argue that we should use <a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/3">Coarse Counties</a> if we're not interested in mapping!)
+				geometry than we get any other helpful details. This is great if we're making a map, but not the best if we're interested in attributes.
 				In order to get something a bit more human-readable, let's make two changes:
 				<ol>
 					<li>Flip the "Return Geometry" radio button to "False."</li>
-					<li>Place a "*" in the "Return Fields" input.</li>
+					<li>Place a "*" in the "Out Fields" input.</li>
 				</ol>
 			</p>
 			<p>
 				Hit "Enter" and you'll see the results are a bit easier to read and understand. These three counties are in Florida, Georgia, and Missouri, along with dozens of demographic results.
 				You can switch the "Format" button at the bottom to "JSON" to change your format. This will actually switch the format in the URL to "pjson" so you can see the "pretty" or "padded" version. But if you're writing code
-				you can set the "f" (format) parameter to just "json" and get the minified version. <a href="https://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/4/query?text=Dade&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=false&maxAllowableOffset=&outSR=&outFields=*&f=json">Here's a link for you to see that.</a>
+				you can set the "f" (format) parameter to just "json" and get the minified version. <a href="https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/2/query?where=&text=Dade&objectIds=&time=&timeRelation=esriTimeRelationOverlaps&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Foot&relationParam=&outFields=*&returnGeometry=false&returnTrueCurves=false&maxAllowableOffset=&geometryPrecision=&outSR=&havingClause=&returnIdsOnly=false&returnCountOnly=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&returnZ=false&returnM=false&gdbVersion=&historicMoment=&returnDistinctValues=false&resultOffset=&resultRecordCount=&returnExtentOnly=false&sqlFormat=none&datumTransformation=&parameterValues=&rangeValues=&quantizationParameters=&featureEncoding=esriDefault&f=json">Here's a link for you to see that.</a>
 			</p>
 			<p>The button below grabs a random letter of the alphabet and queries the layer. Crack open your developer console and watch the Net tab to see how the query gets fired and produces the results shown below.
 				Check out the <em>getRandomCounty</em> function in <a href="https://github.com/mmdolbow/RESTendpts/blob/gh-pages/js/app.js">the source code in GitHub</a> to see more details about how this is done.
